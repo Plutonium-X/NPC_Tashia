@@ -1,0 +1,9 @@
+IF
+    Detect([PC])
+    NumTimesTalkedToLT(3)
+THEN
+    RESPONSE #100
+        StartDialogueNoSet([PC])
+END
+
+

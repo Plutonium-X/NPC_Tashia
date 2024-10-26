@@ -1,0 +1,572 @@
+// Official
+BACKUP ~tashia/backup~
+AUTHOR ~Michael Lyashenko (sentinelsx@yahoo.com) (www.unraveledmind.com)~
+
+// Compatibility with SvA only
+ALLOW_MISSING ~fatesp.dlg~
+              ~SENGUA01.dlg~
+              ~HGWRA01.dlg~
+              ~FINSOL01.dlg~
+              ~SARVOLO.dlg~
+              ~SAREV25J.dlg~
+              ~VALYG25J.dlg~
+              ~VICON25J.dlg~
+              ~AERIE25J.dlg~
+              ~MINSC25J.dlg~
+              ~IMOEN25J.dlg~
+              ~KORGA25J.dlg~
+              ~ar4500.bcs~
+              ~ar6200.bcs~
+
+ALWAYS
+	ACTION_DEFINE_ARRAY ta_reload BEGIN
+	"wsetup"
+	END
+	ACTION_DEFINE_ARRAY ta_noconvert BEGIN END
+	LAF HANDLE_CHARSETS
+		INT_VAR
+		infer_charset = 1
+		STR_VAR
+		tra_path = EVAL ~%MOD_FOLDER%/tra~
+		noconvert_array = ta_noconvert
+		reload_array = ta_reload
+	END
+		ACTION_IF NOT VARIABLE_IS_SET bg2_chapter BEGIN
+	ACTION_IF GAME_IS ~eet~ BEGIN
+		OUTER_SET bg2_chapter = 12
+	END ELSE BEGIN
+		OUTER_SET bg2_chapter = 0
+	END
+	OUTER_FOR (i=1; i<=10; i=i+1) BEGIN
+		OUTER_SET bg2_chapter = bg2_chapter + 1
+		OUTER_SPRINT name_source ~bg2_chapter_%i%~
+		OUTER_SET EVAL ~%name_source%~ = bg2_chapter
+	END
+	END
+END
+
+
+// Translation
+LANGUAGE ~tra/american English~
+         ~tra/american~
+         ~tashia/tra/american/wsetup.tra~
+LANGUAGE ~Francais (traduction de Yoho)~
+         ~french~
+         ~tashia/tra/american/wsetup.tra~
+         ~tashia/tra/french/wsetup.tra~
+LANGUAGE ~Deusch (Uebersetzung von maus)~
+         ~deutsch~
+         ~tashia/tra/deutsch/wsetup.tra~
+LANGUAGE ~Espanol (Traducido por el Clan DLAN)~
+         ~spanish~
+         ~tashia/tra/spanish/wsetup.tra~
+LANGUAGE ~Italiano (by al17 e Hellspawn, http://rtt.altervista.org)~
+         ~italian~
+         ~tashia/tra/italian/wsetup.tra~
+
+// Installation
+BEGIN @0
+AT_EXIT ~tashia/extract.bat~
+
+// Voraussetzungen für die Installation
+
+// Copy creatures and assign proper strings
+COPY ~tashia/tashia.cre~ ~override/tashia.cre~
+     ~tashia/taevil.cre~ ~override/taevil.cre~
+  SAY NAME1 @1
+  SAY NAME2 @1
+  SAY BIO @2
+  SAY SELECT_ACTION1 ~~ [tashia_] //0292
+  SAY SELECT_COMMON4 ~~ [tashia0] //0280
+  SAY TARGET_IMMUNE ~~ [tashia2] //0432
+  SAY INVENTORY_FULL ~~ [tashia3] //0436
+  SAY PICKED_POCKET ~~ [tashia4] //0440
+  SAY EXISTANCE1 ~~ [tashia5] //0444
+  SAY EXISTANCE2 ~~ [tashia6] //0448
+  SAY BATTLE_CRY1 ~~ [tashiaa] //0200
+  SAY LEADER ~~ [tashiab] //0188
+  SAY TIRED ~~ [tashiac] //0192
+  SAY BORED ~~ [tashiad] //0196
+  SAY HURT ~~ [tashiae] //0244
+  SAY SELECT_COMMON1 ~~ [tashiaf] //0268
+  SAY SELECT_COMMON2 ~~ [tashiag] //0272
+  SAY SELECT_COMMON3 ~~ [tashiah] //0276
+  SAY INITIAL_MEETING ~~ [tashiah] //0164
+  SAY BATTLE_CRY2 ~~ [tashiai] //0204
+  SAY BATTLE_CRY3 ~~ [tashiaj] //0208
+  SAY BATTLE_CRY4 ~~ [tashiak] //0212
+  SAY DAMAGE ~~ [tashial] //0236
+  SAY DYING ~~ [tashiam] //0240
+  SAY AREA_FOREST ~~ [tashian] //0248
+  SAY AREA_CITY ~~ [tashiao] //0252
+  SAY AREA_DUNGEON ~~ [tashiap] //0256
+  SAY AREA_DAY ~~ [tashiaq] //0260
+  SAY AREA_NIGHT ~~ [tashiar] //0264
+  SAY SELECT_ACTION2 ~~ [tashias] //0296
+  SAY SELECT_ACTION3 ~~ [tashiat] //0300
+  SAY SELECT_ACTION4 ~~ [tashiau] //0304
+  SAY SELECT_ACTION5 ~~ [tashiav] //0308
+  SAY SELECT_RARE1 ~~ [tashiax] //0416
+  SAY SELECT_RARE2 ~~ [tashiay] //0420
+  SAY CRITICAL_HIT ~~ [tashiaz] //0424
+
+COPY ~tashia/taarilis.cre~ ~override/taarilis.cre~
+  SAY NAME1 @35
+  SAY NAME2 @36
+
+COPY ~tashia/tajarmis.cre~ ~override/tajarmis.cre~
+  SAY NAME1 @37
+  SAY NAME2 @38
+
+COPY ~tashia/tavex.cre~ ~override/tavex.cre~
+  SAY NAME1 @39
+  SAY NAME2 @39
+
+COPY ~tashia/tamage.cre~ ~override/tamage.cre~
+  SAY NAME1 @40
+  SAY NAME2 @40
+
+COPY ~tashia/tasold01.cre~ ~override/tasold01.cre~
+     ~tashia/tasold02.cre~ ~override/tasold02.cre~
+  SAY NAME1 @41
+  SAY NAME2 @41
+
+COPY ~tashia/taelite.cre~ ~override/taelite.cre~
+  SAY NAME1 @42
+  SAY NAME2 @42
+
+COPY ~tashia/tagirl.cre~ ~override/tagirl.cre~
+  SAY NAME1 @43
+  SAY NAME2 @43
+
+COPY ~tashia/tatump.cre~ ~override/tatump.cre~
+  SAY NAME1 @44
+  SAY NAME2 @44
+
+COPY ~tashia/takomt.cre~ ~override/takomt.cre~
+  SAY NAME1 @45
+  SAY NAME2 @45
+
+COPY ~tashia/tadream.cre~ ~override/tadream.cre~
+  SAY NAME1 @46
+  SAY NAME2 @46
+
+COPY ~tashia/tafamil.cre~ ~override/tafamil.cre~
+  SAY NAME1 @47
+  SAY NAME2 @47
+
+COPY ~tashia/tafamil.itm~ ~override/tafamil.itm~
+  SAY NAME1 @48
+  SAY NAME2 @48
+  SAY DESC @49
+
+COPY ~tashia/tmother.cre~ ~override/tmother.cre~
+  SAY NAME1 @50
+  SAY NAME2 @50
+
+COPY ~tashia/tafamclw.itm~ ~override/tafamclw.itm~
+  SAY NAME1 @290
+  SAY NAME2 @290
+
+
+// Copy files
+COPY ~tashia/tafamil.eff~  ~override/tafamil.eff~
+     ~tashia/tashiaS.bmp~  ~override/tashiaS.bmp~
+     ~tashia/tashiaM.bmp~  ~override/tashiaM.bmp~
+     ~tashia/tashiaL.bmp~  ~override/tashiaL.bmp~
+     ~tashia/j#blank.mus~  ~music/j#blank.mus~
+
+// Compile scripts
+COMPILE ~tashia/taarilis.baf~
+USING ~~
+
+COMPILE ~tashia/tadream.baf~
+USING ~~
+
+COMPILE ~tashia/tafamil.baf~
+USING ~tashia/tra/%s/wsetup.tra~
+
+COMPILE ~tashia/tash25.baf~
+USING ~tashia/tra/%s/wsetup.tra~
+
+COMPILE ~tashia/tashi25d.baf~
+USING ~~
+
+COMPILE ~tashia/tashia.baf~
+USING ~tashia/tra/%s/wsetup.tra~
+
+COMPILE ~tashia/cuttas01.baf~
+USING ~tashia/tra/%s/wsetup.tra~
+
+COMPILE ~tashia/cuttas02.baf~
+USING ~tashia/tra/%s/wsetup.tra~
+
+COMPILE ~tashia/cuttas03.baf~
+USING ~tashia/tra/%s/wsetup.tra~
+
+COMPILE ~tashia/cuttas04.baf~
+USING ~~
+
+COMPILE ~tashia/cuttas05.baf~
+USING ~tashia/tra/%s/wsetup.tra~
+
+COMPILE ~tashia/cuttas06.baf~
+USING ~~
+
+COMPILE ~tashia/ar2602.baf~
+USING ~~
+
+COMPILE ~tashia/tfix.baf~
+USING ~tashia/tra/%s/wsetup.tra~
+
+// Compile dialogs
+COMPILE ~tashia/taevil.d~
+USING  // ~tashia/tra/american/taevil.tra~
+      ~tashia/tra/%s/taevil.tra~
+
+COMPILE ~tashia/tashia.d~
+USING // ~tashia/tra/american/tashia.tra~
+      ~tashia/tra/%s/tashia.tra~
+
+COMPILE ~tashia/tashiaj.d~
+USING // ~tashia/tra/american/tashiaj.tra~
+      ~tashia/tra/%s/tashiaj.tra~
+
+COMPILE ~tashia/tashiap.d~
+USING // ~tashia/tra/american/tashiap.tra~
+      ~tashia/tra/%s/tashiap.tra~
+
+COMPILE ~tashia/btashia.d~
+USING // ~tashia/tra/american/btashia.tra~
+      ~tashia/tra/%s/btashia.tra~
+
+COMPILE ~tashia/tajarmis.d~
+USING // ~tashia/tra/american/tajarmis.tra~
+      ~tashia/tra/%s/tajarmis.tra~
+
+COMPILE ~tashia/taarilis.d~
+USING // ~tashia/tra/american/taarilis.tra~
+      ~tashia/tra/%s/taarilis.tra~
+
+COMPILE ~tashia/tadream.d~
+USING // ~tashia/tra/american/tadream.tra~
+      ~tashia/tra/%s/tadream.tra~
+
+COMPILE ~tashia/takomt.d~
+USING // ~tashia/tra/american/takomt.tra~
+      ~tashia/tra/%s/takomt.tra~
+
+COMPILE ~tashia/tafamil.d~
+USING // ~tashia/tra/american/tafamil.tra~
+      ~tashia/tra/%s/tafamil.tra~
+
+COMPILE ~tashia/btashi25.d~
+USING // ~tashia/tra/american/btashi25.tra~
+      ~tashia/tra/%s/btashi25.tra~
+
+COMPILE ~tashia/tashi25j.d~
+USING // ~tashia/tra/american/tashi25j.tra~
+      ~tashia/tra/%s/tashi25j.tra~
+
+COMPILE ~tashia/tashi25p.d~
+USING // ~tashia/tra/american/tashi25p.tra~
+      ~tashia/tra/%s/tashi25p.tra~
+
+COMPILE ~tashia/tmother.d~
+USING // ~tashia/tra/american/tmother.tra~
+      ~tashia/tra/%s/tmother.tra~
+
+COMPILE ~tashia/taflirt.d~
+USING // ~tashia/tra/american/taflirt.tra~
+      ~tashia/tra/%s/taflirt.tra~
+
+// Patch StringRefs in scripts
+
+COPY ~tashia/tashend1.2da~ ~override/tashend1.2da~
+  REPLACE ~187678~ @103
+COPY ~tashia/tashend2.2da~ ~override/tashend2.2da~
+  REPLACE ~187678~ @104
+COPY ~tashia/tashend3.2da~ ~override/tashend3.2da~
+  REPLACE ~187678~ @105
+
+
+// Pretend scripts
+EXTEND_TOP ~player1d.bcs~ ~tashia/tashia1d.bcs~
+EXTEND_TOP ~ar2010.bcs~ ~tashia/tash2010.bcs~
+EXTEND_TOP ~ar4500.bcs~ ~tashia/tash4500.bcs~
+EXTEND_TOP ~ar6200.bcs~ ~tashia/tash6200.bcs~
+EXTEND_BOTTOM ~cut218g.bcs~ ~tashia/tcut218g.bcs~
+
+// Append Tashia NPC dialogs to the games 2da files
+APPEND ~songlist.2da~
+  ~84      J#Blank         J#Blank.mus~
+  UNLESS ~84~
+
+APPEND ~pdialog.2da~
+  ~TASHIA       TASHIAP            TASHIAJ           TASHIAD~
+  UNLESS ~TASHIA~
+  UNLESS ~25POST~
+
+APPEND ~pdialog.2da~
+  ~TASHIA       TASHIAP            TASHIAJ           TASHIAD        TASHI25P           TASHI25J              TASHI25D              tash25~
+  UNLESS ~TASHIA~
+  IF ~25POST~
+
+APPEND ~interdia.2da~
+  ~TASHIA      BTASHIA~
+  UNLESS ~TASHIA~
+  UNLESS ~25FILE~
+
+APPEND ~interdia.2da~
+  ~TASHIA      BTASHIA       BTASHI25~
+  UNLESS ~TASHIA~
+  IF ~25FILE~
+
+
+APPEND ~npclevel.2da~
+  ~Tashia      Tashia      Tashia      Tashia      Tashia      Tashia      Tashia     Tashia   Tashia      Tashia      Tashia      Tashia      Tashia      Tashia      Tashia      Tashia      Tashia     Tashia   Tashia   Tashia    Tashia   Tashia    Tashia   Tashia~
+  UNLESS ~Tashia~
+
+
+APPEND ~npclvl25.2da~
+  ~Tashia      Tashia      Tashia      Tashia      Tashia      Tashia      Tashia     Tashia   Tashia      Tashia      Tashia      Tashia      Tashia      Tashia      Tashia      Tashia      Tashia     Tashia   Tashia   Tashia    Tashia   Tashia    Tashia   Tashia~
+  UNLESS ~Tashia~
+
+BEGIN @291
+AT_EXIT ~tashia/extract.bat~
+
+// Voraussetzungen für die Installation
+
+APPEND ~TRIGGER.IDS~
+~0x40DB InWatchersKeep()~
+UNLESS ~0x40DB InWatchersKeep()~
+
+
+// Copy creatures and assign proper strings
+COPY ~tashia/tashia.cre~ ~override/tashia.cre~
+     ~tashia/taevil.cre~ ~override/taevil.cre~
+  SAY NAME1 @1
+  SAY NAME2 @1
+  SAY BIO @2
+  SAY SELECT_ACTION1 ~~ [tashia_] //0292
+  SAY SELECT_COMMON4 ~~ [tashia0] //0280
+  SAY TARGET_IMMUNE ~~ [tashia2] //0432
+  SAY INVENTORY_FULL ~~ [tashia3] //0436
+  SAY PICKED_POCKET ~~ [tashia4] //0440
+  SAY EXISTANCE1 ~~ [tashia5] //0444
+  SAY EXISTANCE2 ~~ [tashia6] //0448
+  SAY BATTLE_CRY1 ~~ [tashiaa] //0200
+  SAY LEADER ~~ [tashiab] //0188
+  SAY TIRED ~~ [tashiac] //0192
+  SAY BORED ~~ [tashiad] //0196
+  SAY HURT ~~ [tashiae] //0244
+  SAY SELECT_COMMON1 ~~ [tashiaf] //0268
+  SAY SELECT_COMMON2 ~~ [tashiag] //0272
+  SAY SELECT_COMMON3 ~~ [tashiah] //0276
+  SAY INITIAL_MEETING ~~ [tashiah] //0164
+  SAY BATTLE_CRY2 ~~ [tashiai] //0204
+  SAY BATTLE_CRY3 ~~ [tashiaj] //0208
+  SAY BATTLE_CRY4 ~~ [tashiak] //0212
+  SAY DAMAGE ~~ [tashial] //0236
+  SAY DYING ~~ [tashiam] //0240
+  SAY AREA_FOREST ~~ [tashian] //0248
+  SAY AREA_CITY ~~ [tashiao] //0252
+  SAY AREA_DUNGEON ~~ [tashiap] //0256
+  SAY AREA_DAY ~~ [tashiaq] //0260
+  SAY AREA_NIGHT ~~ [tashiar] //0264
+  SAY SELECT_ACTION2 ~~ [tashias] //0296
+  SAY SELECT_ACTION3 ~~ [tashiat] //0300
+  SAY SELECT_ACTION4 ~~ [tashiau] //0304
+  SAY SELECT_ACTION5 ~~ [tashiav] //0308
+  SAY SELECT_RARE1 ~~ [tashiax] //0416
+  SAY SELECT_RARE2 ~~ [tashiay] //0420
+  SAY CRITICAL_HIT ~~ [tashiaz] //0424
+
+COPY ~tashia/taarilis.cre~ ~override/taarilis.cre~
+  SAY NAME1 @35
+  SAY NAME2 @36
+
+COPY ~tashia/tajarmis.cre~ ~override/tajarmis.cre~
+  SAY NAME1 @37
+  SAY NAME2 @38
+
+COPY ~tashia/tavex.cre~ ~override/tavex.cre~
+  SAY NAME1 @39
+  SAY NAME2 @39
+
+COPY ~tashia/tamage.cre~ ~override/tamage.cre~
+  SAY NAME1 @40
+  SAY NAME2 @40
+
+COPY ~tashia/tasold01.cre~ ~override/tasold01.cre~
+     ~tashia/tasold02.cre~ ~override/tasold02.cre~
+  SAY NAME1 @41
+  SAY NAME2 @41
+
+COPY ~tashia/taelite.cre~ ~override/taelite.cre~
+  SAY NAME1 @42
+  SAY NAME2 @42
+
+COPY ~tashia/tagirl.cre~ ~override/tagirl.cre~
+  SAY NAME1 @43
+  SAY NAME2 @43
+
+COPY ~tashia/tatump.cre~ ~override/tatump.cre~
+  SAY NAME1 @44
+  SAY NAME2 @44
+
+COPY ~tashia/takomt.cre~ ~override/takomt.cre~
+  SAY NAME1 @45
+  SAY NAME2 @45
+
+COPY ~tashia/tadream.cre~ ~override/tadream.cre~
+  SAY NAME1 @46
+  SAY NAME2 @46
+
+COPY ~tashia/tafamil.cre~ ~override/tafamil.cre~
+  SAY NAME1 @47
+  SAY NAME2 @47
+
+COPY ~tashia/tafamil.itm~ ~override/tafamil.itm~
+  SAY NAME1 @48
+  SAY NAME2 @48
+  SAY DESC @49
+
+COPY ~tashia/tafamclw.itm~ ~override/tafamclw.itm~
+  SAY NAME1 @290
+  SAY NAME2 @290
+
+
+// Copy files
+COPY ~tashia/tafamil.eff~  ~override/tafamil.eff~
+     ~tashia/tashiaS.bmp~  ~override/tashiaS.bmp~
+     ~tashia/tashiaM.bmp~  ~override/tashiaM.bmp~
+     ~tashia/tashiaL.bmp~  ~override/tashiaL.bmp~
+     ~tashia/j#blank.mus~  ~music/j#blank.mus~
+
+// Compile scripts
+COMPILE ~tashia/taarilis.baf~
+USING ~~
+
+COMPILE ~tashia/tadream.baf~
+USING ~~
+
+COMPILE ~tashia/tafamil.baf~
+USING ~tashia/tra/%s/wsetup.tra~
+
+COMPILE ~tashia/tashia.baf~
+USING ~tashia/tra/%s/wsetup.tra~
+
+COMPILE ~tashia/cuttas01.baf~
+USING ~tashia/tra/%s/wsetup.tra~
+
+COMPILE ~tashia/cuttas02.baf~
+USING ~tashia/tra/%s/wsetup.tra~
+
+COMPILE ~tashia/cuttas03.baf~
+USING ~tashia/tra/%s/wsetup.tra~
+
+COMPILE ~tashia/cuttas04.baf~
+USING ~~
+
+COMPILE ~tashia/cuttas05.baf~
+USING ~tashia/tra/%s/wsetup.tra~
+
+COMPILE ~tashia/cuttas06.baf~
+USING ~~
+
+COMPILE ~tashia/ar2602.baf~
+USING ~~
+
+COMPILE ~tashia/tfix.baf~
+USING ~tashia/tra/%s/wsetup.tra~
+
+// Compile dialogs
+COMPILE ~tashia/taevil.d~
+USING  // ~tashia/tra/american/taevil.tra~
+      ~tashia/tra/%s/taevil.tra~
+
+COMPILE ~tashia/tashia.d~
+USING // ~tashia/tra/american/tashia.tra~
+      ~tashia/tra/%s/tashia.tra~
+
+COMPILE ~tashia/tashiaj.d~
+USING // ~tashia/tra/american/tashiaj.tra~
+      ~tashia/tra/%s/tashiaj.tra~
+
+COMPILE ~tashia/tashiap.d~
+USING // ~tashia/tra/american/tashiap.tra~
+      ~tashia/tra/%s/tashiap.tra~
+
+COMPILE ~tashia/btashia.d~
+USING // ~tashia/tra/american/btashia.tra~
+      ~tashia/tra/%s/btashia.tra~
+
+COMPILE ~tashia/tajarmis.d~
+USING // ~tashia/tra/american/tajarmis.tra~
+      ~tashia/tra/%s/tajarmis.tra~
+
+COMPILE ~tashia/taarilis.d~
+USING // ~tashia/tra/american/taarilis.tra~
+      ~tashia/tra/%s/taarilis.tra~
+
+COMPILE ~tashia/tadream.d~
+USING // ~tashia/tra/american/tadream.tra~
+      ~tashia/tra/%s/tadream.tra~
+
+COMPILE ~tashia/takomt.d~
+USING // ~tashia/tra/american/takomt.tra~
+      ~tashia/tra/%s/takomt.tra~
+
+COMPILE ~tashia/tafamil.d~
+USING // ~tashia/tra/american/tafamil.tra~
+      ~tashia/tra/%s/tafamil.tra~
+
+COMPILE ~tashia/taflirt.d~
+USING // ~tashia/tra/american/taflirt.tra~
+      ~tashia/tra/%s/taflirt.tra~
+
+// Patch StringRefs in scripts
+
+COPY ~tashia/tashend1.2da~ ~override/tashend1.2da~
+  REPLACE ~187678~ @103
+COPY ~tashia/tashend2.2da~ ~override/tashend2.2da~
+  REPLACE ~187678~ @104
+COPY ~tashia/tashend3.2da~ ~override/tashend3.2da~
+  REPLACE ~187678~ @105
+
+
+// Pretend scripts
+EXTEND_TOP ~player1d.bcs~ ~tashia/tashia1d.bcs~
+EXTEND_TOP ~ar2010.bcs~ ~tashia/tash2010.bcs~
+
+
+// Append Tashia NPC dialogs to the games 2da files
+APPEND ~songlist.2da~
+  ~84      J#Blank         J#Blank.mus~
+  UNLESS ~84~
+
+APPEND ~pdialog.2da~
+  ~TASHIA       TASHIAP            TASHIAJ           TASHIAD~
+  UNLESS ~TASHIA~
+  UNLESS ~25POST~
+
+APPEND ~pdialog.2da~
+  ~TASHIA       TASHIAP            TASHIAJ           TASHIAD        TASHI25P           TASHI25J              TASHI25D              tash25~
+  UNLESS ~TASHIA~
+  IF ~25POST~
+
+APPEND ~interdia.2da~
+  ~TASHIA      BTASHIA~
+  UNLESS ~TASHIA~
+  UNLESS ~25FILE~
+
+APPEND ~interdia.2da~
+  ~TASHIA      BTASHIA       BTASHI25~
+  UNLESS ~TASHIA~
+  IF ~25FILE~
+  
+
+APPEND ~npclevel.2da~
+  ~Tashia      Tashia      Tashia      Tashia      Tashia      Tashia      Tashia     Tashia   Tashia      Tashia      Tashia      Tashia      Tashia      Tashia      Tashia      Tashia      Tashia     Tashia   Tashia   Tashia    Tashia   Tashia    Tashia   Tashia~
+  UNLESS ~Tashia~
