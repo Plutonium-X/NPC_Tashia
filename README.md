@@ -1,5 +1,6 @@
-# Tashia
-Tashia est une compagne recrutable ensorceleuse qui vous attend dans l'Auberge de Francmarché. Romance possible avec un homme.
+# Tashia l'ensorceleuse
+
+Elle vous attend dans l'Auberge de Francmarché. Si vous êtes un homme, vous pourrez la romancer.
 
 Particularités :
 - Résistance à la magie 25%.
