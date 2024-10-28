@@ -31,17 +31,31 @@ ALWAYS
 		noconvert_array = ta_noconvert
 		reload_array = ta_reload
 	END
-		ACTION_IF NOT VARIABLE_IS_SET bg2_chapter BEGIN
-	ACTION_IF GAME_IS ~eet~ BEGIN
-		OUTER_SET bg2_chapter = 12
-	END ELSE BEGIN
-		OUTER_SET bg2_chapter = 0
+	ACTION_IF GAME_IS ~TOB BGT~ THEN BEGIN 
+	COPY ~tashia/images/tashiaS.bmp~  ~override/tashiaS.bmp~
+     ~tashia/images/tashiaM.bmp~  ~override/tashiaM.bmp~
+     ~tashia/images/tashiaL.bmp~  ~override/tashiaL.bmp~
 	END
-	OUTER_FOR (i=1; i<=10; i=i+1) BEGIN
-		OUTER_SET bg2_chapter = bg2_chapter + 1
-		OUTER_SPRINT name_source ~bg2_chapter_%i%~
-		OUTER_SET EVAL ~%name_source%~ = bg2_chapter
+	ACTION_IF GAME_IS ~BG2EE EET~ THEN BEGIN 
+	COPY ~tashia/imagesEE/tashiaS.bmp~  ~override/tashiaS.bmp~
+     ~tashia/imagesEE/tashiaM.bmp~  ~override/tashiaM.bmp~
+     ~tashia/imagesEE/tashiaL.bmp~  ~override/tashiaL.bmp~
 	END
+	ACTION_IF GAME_IS ~TOB BGT BG2EE~ THEN BEGIN 
+	COMPILE ~tashia/Images/tafamil.baf~
+	USING ~tashia/tra/%s/wsetup.tra~
+	COMPILE ~tashia/mages/btashia.d~
+	USING ~tashia/tra/%s/btashia.tra~
+	COMPILE ~tashia/mages/tashia.d~
+	USING ~tashia/tra/%s/tashia.tra~
+	END
+	ACTION_IF GAME_IS ~EET~ THEN BEGIN 
+	COMPILE ~tashia/ImagesEE/tafamil.baf~
+	USING ~tashia/tra/%s/wsetup.tra~
+	COMPILE ~tashia/ImagesEE/btashia.d~
+	USING ~tashia/tra/%s/btashia.tra~
+	COMPILE ~tashia/ImagesEE/tashia.d~
+	USING ~tashia/tra/%s/tashia.tra~
 	END
 END
 
@@ -171,9 +185,6 @@ COPY ~tashia/tafamclw.itm~ ~override/tafamclw.itm~
 
 // Copy files
 COPY ~tashia/tafamil.eff~  ~override/tafamil.eff~
-     ~tashia/tashiaS.bmp~  ~override/tashiaS.bmp~
-     ~tashia/tashiaM.bmp~  ~override/tashiaM.bmp~
-     ~tashia/tashiaL.bmp~  ~override/tashiaL.bmp~
      ~tashia/j#blank.mus~  ~music/j#blank.mus~
 
 // Compile scripts
@@ -182,9 +193,6 @@ USING ~~
 
 COMPILE ~tashia/tadream.baf~
 USING ~~
-
-COMPILE ~tashia/tafamil.baf~
-USING ~tashia/tra/%s/wsetup.tra~
 
 COMPILE ~tashia/tash25.baf~
 USING ~tashia/tra/%s/wsetup.tra~
@@ -224,10 +232,6 @@ COMPILE ~tashia/taevil.d~
 USING  // ~tashia/tra/american/taevil.tra~
       ~tashia/tra/%s/taevil.tra~
 
-COMPILE ~tashia/tashia.d~
-USING // ~tashia/tra/american/tashia.tra~
-      ~tashia/tra/%s/tashia.tra~
-
 COMPILE ~tashia/tashiaj.d~
 USING // ~tashia/tra/american/tashiaj.tra~
       ~tashia/tra/%s/tashiaj.tra~
@@ -235,10 +239,6 @@ USING // ~tashia/tra/american/tashiaj.tra~
 COMPILE ~tashia/tashiap.d~
 USING // ~tashia/tra/american/tashiap.tra~
       ~tashia/tra/%s/tashiap.tra~
-
-COMPILE ~tashia/btashia.d~
-USING // ~tashia/tra/american/btashia.tra~
-      ~tashia/tra/%s/btashia.tra~
 
 COMPILE ~tashia/tajarmis.d~
 USING // ~tashia/tra/american/tajarmis.tra~
@@ -439,9 +439,6 @@ COPY ~tashia/tafamclw.itm~ ~override/tafamclw.itm~
 
 // Copy files
 COPY ~tashia/tafamil.eff~  ~override/tafamil.eff~
-     ~tashia/tashiaS.bmp~  ~override/tashiaS.bmp~
-     ~tashia/tashiaM.bmp~  ~override/tashiaM.bmp~
-     ~tashia/tashiaL.bmp~  ~override/tashiaL.bmp~
      ~tashia/j#blank.mus~  ~music/j#blank.mus~
 
 // Compile scripts
@@ -450,9 +447,6 @@ USING ~~
 
 COMPILE ~tashia/tadream.baf~
 USING ~~
-
-COMPILE ~tashia/tafamil.baf~
-USING ~tashia/tra/%s/wsetup.tra~
 
 COMPILE ~tashia/tashia.baf~
 USING ~tashia/tra/%s/wsetup.tra~
@@ -486,10 +480,6 @@ COMPILE ~tashia/taevil.d~
 USING  // ~tashia/tra/american/taevil.tra~
       ~tashia/tra/%s/taevil.tra~
 
-COMPILE ~tashia/tashia.d~
-USING // ~tashia/tra/american/tashia.tra~
-      ~tashia/tra/%s/tashia.tra~
-
 COMPILE ~tashia/tashiaj.d~
 USING // ~tashia/tra/american/tashiaj.tra~
       ~tashia/tra/%s/tashiaj.tra~
@@ -497,10 +487,6 @@ USING // ~tashia/tra/american/tashiaj.tra~
 COMPILE ~tashia/tashiap.d~
 USING // ~tashia/tra/american/tashiap.tra~
       ~tashia/tra/%s/tashiap.tra~
-
-COMPILE ~tashia/btashia.d~
-USING // ~tashia/tra/american/btashia.tra~
-      ~tashia/tra/%s/btashia.tra~
 
 COMPILE ~tashia/tajarmis.d~
 USING // ~tashia/tra/american/tajarmis.tra~
