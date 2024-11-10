@@ -41,22 +41,6 @@ ALWAYS
      ~tashia/imagesEE/tashiaM.bmp~  ~override/tashiaM.bmp~
      ~tashia/imagesEE/tashiaL.bmp~  ~override/tashiaL.bmp~
 	END
-	ACTION_IF GAME_IS ~TOB BGT BG2EE~ THEN BEGIN 
-	COMPILE ~tashia/Images/tafamil.baf~
-	USING ~tashia/tra/%s/wsetup.tra~
-	COMPILE ~tashia/mages/btashia.d~
-	USING ~tashia/tra/%s/btashia.tra~
-	COMPILE ~tashia/mages/tashia.d~
-	USING ~tashia/tra/%s/tashia.tra~
-	END
-	ACTION_IF GAME_IS ~EET~ THEN BEGIN 
-	COMPILE ~tashia/ImagesEE/tafamil.baf~
-	USING ~tashia/tra/%s/wsetup.tra~
-	COMPILE ~tashia/ImagesEE/btashia.d~
-	USING ~tashia/tra/%s/btashia.tra~
-	COMPILE ~tashia/ImagesEE/tashia.d~
-	USING ~tashia/tra/%s/tashia.tra~
-	END
 END
 
 
@@ -279,7 +263,24 @@ USING // ~tashia/tra/american/tmother.tra~
 COMPILE ~tashia/taflirt.d~
 USING // ~tashia/tra/american/taflirt.tra~
       ~tashia/tra/%s/taflirt.tra~
-
+	  
+ACTION_IF GAME_IS ~TOB BGT BG2EE~ THEN BEGIN 
+	COMPILE ~tashia/Images/tafamil.baf~
+	USING ~tashia/tra/%s/wsetup.tra~
+	COMPILE ~tashia/mages/btashia.d~
+	USING ~tashia/tra/%s/btashia.tra~
+	COMPILE ~tashia/mages/tashia.d~
+	USING ~tashia/tra/%s/tashia.tra~
+END
+ACTION_IF GAME_IS ~EET~ THEN BEGIN 
+	COMPILE ~tashia/ImagesEE/tafamil.baf~
+	USING ~tashia/tra/%s/wsetup.tra~
+	COMPILE ~tashia/ImagesEE/btashia.d~
+	USING ~tashia/tra/%s/btashia.tra~
+	COMPILE ~tashia/ImagesEE/tashia.d~
+	USING ~tashia/tra/%s/tashia.tra~
+END
+	    
 // Patch StringRefs in scripts
 
 COPY ~tashia/tashend1.2da~ ~override/tashend1.2da~

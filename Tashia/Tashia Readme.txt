@@ -22,6 +22,9 @@ Special Thanks:       Westley Weimer, Chris Connell, Darrick Yee, and to every p
 ------------------
   VERSION NOTES:
 ------------------
+------- 2.7 -------
+EET integration.
+
 ------ 2.05g ------
 Spanish translation implemented by Bhasbuto. Translated by Bhasbuto, Immortality and Atoan.
 
