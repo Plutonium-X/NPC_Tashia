@@ -215,6 +215,15 @@ USING ~tashia/tra/%s/wsetup.tra~
 COMPILE ~tashia/taevil.d~
 USING  // ~tashia/tra/american/taevil.tra~
       ~tashia/tra/%s/taevil.tra~
+	  
+ ACTION_IF GAME_IS ~TOB BGT BG2EE~ THEN BEGIN 
+	COMPILE ~tashia/Images/tashia.d~
+	USING ~tashia/tra/%s/tashia.tra~
+END
+ACTION_IF GAME_IS ~EET~ THEN BEGIN 
+	COMPILE ~tashia/ImagesEE/tashia.d~
+	USING ~tashia/tra/%s/tashia.tra~
+END
 
 COMPILE ~tashia/tashiaj.d~
 USING // ~tashia/tra/american/tashiaj.tra~
@@ -223,6 +232,15 @@ USING // ~tashia/tra/american/tashiaj.tra~
 COMPILE ~tashia/tashiap.d~
 USING // ~tashia/tra/american/tashiap.tra~
       ~tashia/tra/%s/tashiap.tra~
+	  
+ACTION_IF GAME_IS ~TOB BGT BG2EE~ THEN BEGIN 
+	COMPILE ~tashia/Images/btashia.d~
+	USING ~tashia/tra/%s/btashia.tra~
+END
+ACTION_IF GAME_IS ~EET~ THEN BEGIN 
+	COMPILE ~tashia/ImagesEE/btashia.d~
+	USING ~tashia/tra/%s/btashia.tra~
+END
 
 COMPILE ~tashia/tajarmis.d~
 USING // ~tashia/tra/american/tajarmis.tra~
@@ -239,10 +257,15 @@ USING // ~tashia/tra/american/tadream.tra~
 COMPILE ~tashia/takomt.d~
 USING // ~tashia/tra/american/takomt.tra~
       ~tashia/tra/%s/takomt.tra~
-
-COMPILE ~tashia/tafamil.d~
-USING // ~tashia/tra/american/tafamil.tra~
-      ~tashia/tra/%s/tafamil.tra~
+	  
+ACTION_IF GAME_IS ~TOB BGT BG2EE~ THEN BEGIN 
+	COMPILE ~tashia/Images/tafamil.baf~
+	USING ~tashia/tra/%s/wsetup.tra~
+END
+ACTION_IF GAME_IS ~EET~ THEN BEGIN 
+	COMPILE ~tashia/ImagesEE/tafamil.baf~
+	USING ~tashia/tra/%s/wsetup.tra~
+END
 
 COMPILE ~tashia/btashi25.d~
 USING // ~tashia/tra/american/btashi25.tra~
@@ -263,23 +286,6 @@ USING // ~tashia/tra/american/tmother.tra~
 COMPILE ~tashia/taflirt.d~
 USING // ~tashia/tra/american/taflirt.tra~
       ~tashia/tra/%s/taflirt.tra~
-	  
-ACTION_IF GAME_IS ~TOB BGT BG2EE~ THEN BEGIN 
-	COMPILE ~tashia/Images/tafamil.baf~
-	USING ~tashia/tra/%s/wsetup.tra~
-	COMPILE ~tashia/mages/btashia.d~
-	USING ~tashia/tra/%s/btashia.tra~
-	COMPILE ~tashia/mages/tashia.d~
-	USING ~tashia/tra/%s/tashia.tra~
-END
-ACTION_IF GAME_IS ~EET~ THEN BEGIN 
-	COMPILE ~tashia/ImagesEE/tafamil.baf~
-	USING ~tashia/tra/%s/wsetup.tra~
-	COMPILE ~tashia/ImagesEE/btashia.d~
-	USING ~tashia/tra/%s/btashia.tra~
-	COMPILE ~tashia/ImagesEE/tashia.d~
-	USING ~tashia/tra/%s/tashia.tra~
-END
 	    
 // Patch StringRefs in scripts
 
@@ -334,6 +340,7 @@ APPEND ~npclvl25.2da~
   UNLESS ~Tashia~
 
 BEGIN @291
+REQUIRE_PREDICATE NOT MOD_IS_INSTALLED ~Setup-Tashia.tp2~ ~0~ ~Ignored~
 AT_EXIT ~tashia/extract.bat~
 
 // Voraussetzungen für die Installation
@@ -480,6 +487,15 @@ USING ~tashia/tra/%s/wsetup.tra~
 COMPILE ~tashia/taevil.d~
 USING  // ~tashia/tra/american/taevil.tra~
       ~tashia/tra/%s/taevil.tra~
+	  
+ ACTION_IF GAME_IS ~TOB BGT BG2EE~ THEN BEGIN 
+	COMPILE ~tashia/Images/tashia.d~
+	USING ~tashia/tra/%s/tashia.tra~
+END
+ACTION_IF GAME_IS ~EET~ THEN BEGIN 
+	COMPILE ~tashia/ImagesEE/tashia.d~
+	USING ~tashia/tra/%s/tashia.tra~
+END
 
 COMPILE ~tashia/tashiaj.d~
 USING // ~tashia/tra/american/tashiaj.tra~
@@ -488,6 +504,15 @@ USING // ~tashia/tra/american/tashiaj.tra~
 COMPILE ~tashia/tashiap.d~
 USING // ~tashia/tra/american/tashiap.tra~
       ~tashia/tra/%s/tashiap.tra~
+	  
+ACTION_IF GAME_IS ~TOB BGT BG2EE~ THEN BEGIN 
+	COMPILE ~tashia/Images/btashia.d~
+	USING ~tashia/tra/%s/btashia.tra~
+END
+ACTION_IF GAME_IS ~EET~ THEN BEGIN 
+	COMPILE ~tashia/ImagesEE/btashia.d~
+	USING ~tashia/tra/%s/btashia.tra~
+END
 
 COMPILE ~tashia/tajarmis.d~
 USING // ~tashia/tra/american/tajarmis.tra~
@@ -505,9 +530,14 @@ COMPILE ~tashia/takomt.d~
 USING // ~tashia/tra/american/takomt.tra~
       ~tashia/tra/%s/takomt.tra~
 
-COMPILE ~tashia/tafamil.d~
-USING // ~tashia/tra/american/tafamil.tra~
-      ~tashia/tra/%s/tafamil.tra~
+ACTION_IF GAME_IS ~TOB BGT BG2EE~ THEN BEGIN 
+	COMPILE ~tashia/Images/tafamil.baf~
+	USING ~tashia/tra/%s/wsetup.tra~
+END
+ACTION_IF GAME_IS ~EET~ THEN BEGIN 
+	COMPILE ~tashia/ImagesEE/tafamil.baf~
+	USING ~tashia/tra/%s/wsetup.tra~
+END
 
 COMPILE ~tashia/taflirt.d~
 USING // ~tashia/tra/american/taflirt.tra~
