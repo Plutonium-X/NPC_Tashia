@@ -5,5 +5,6 @@ Elle vous attend dans l'Auberge de Francmarché. Si vous êtes un homme, vous po
 Particularités :
 - Résistance à la magie 25%.
 - Possibilité d'invoquer une fois par jour son compagnon animal qui à 100% de résistance à la magie.
-- L'installeur vous demande d'abord si vous voulez installer Tashia avec le contenu TOB. Si vous l'installez, ignorer le deuxième composant pour SOA seulement (sinon vous aurez 2 Tashia ^^).
-- Sinon ignorez Tashia pour TOB, installez Tashia pour SOA, et prévoyez de la remplacer par Sarevok ou irenicus. Pratique :)
+- L'installeur vous demande d'abord si vous voulez installer Tashia avec le contenu TOB. Si vous refusez, il vous proposera d'installer Tashia pour SOA seulement. Pratique pour la remplacerdans TOB par Sarevok ou irenicus.
+
+Note : Tashia est depuis des années mise à jour avec plus de texte. Malheureusement elle a perdu le français en route. Ce que je propose est la dernière version en date incluant le français.
